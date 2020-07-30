@@ -1,16 +1,36 @@
 import React from 'react';
-import './App.scss';
+// import PropTypes from 'prop-types';
+import AppView from './AppView.jsx';
 
-import Main from './components/Main';
-import Header from './components/Header';
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      score: 0,
+      currentLevel: 0,
+    }
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Main />
-    </div>
-  );
+  handleClickNextLevel = () => {
+    let { currentLevel } = this.state;
+    this.setState({
+      currentLevel: currentLevel +=1,
+    })
+  }
+
+  render() {
+    const {
+      score,
+      currentLevel,
+    } = this.state;
+    return(
+      <AppView 
+        score={score}
+        currentLevel={currentLevel}
+        handleClickNextLevel={this.handleClickNextLevel}
+      />
+    );
+  }
 }
 
 export default App;
