@@ -8,22 +8,25 @@ import Button from '../Button';
 
 const MainView = ({
   handleClickNextLevel,
-}) => {
-  return (
-    <div className={style.container}>
-      <Question />   
-      <AnswerPanel />
-      <Button 
-        handleClickNextLevel={handleClickNextLevel}
-      />
-    </div>
-  );
-}
+  question,
+  isRightAnswer,
+}) => (
+  <div className={style.container}>
+    <Question
+      question={question}
+      isRightAnswer={isRightAnswer}
+    />
+    <AnswerPanel />
+    <Button
+      handleClickNextLevel={handleClickNextLevel}
+    />
+  </div>
+);
 
 MainView.propTypes = {
   handleClickNextLevel: PropTypes.func,
-}
-
-
+  question: PropTypes.object,
+  isRightAnswer: PropTypes.bool,
+};
 
 export default MainView;

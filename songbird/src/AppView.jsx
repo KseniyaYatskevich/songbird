@@ -9,25 +9,28 @@ const AppView = ({
   score,
   currentLevel,
   handleClickNextLevel,
-}) => {
-  console.log(score, 123)
-  return (
-    <div className="App">
-      <Header 
-        score={score}
-        currentLevel={currentLevel}
-      />
-      <Main 
-        handleClickNextLevel={handleClickNextLevel}
-      />
-    </div>
-  );
-}
+  question,
+  isRightAnswer,
+}) => (
+  <div className="App">
+    <Header
+      score={score}
+      currentLevel={currentLevel}
+    />
+    <Main
+      isRightAnswer={isRightAnswer}
+      question={question}
+      handleClickNextLevel={handleClickNextLevel}
+    />
+  </div>
+);
 
 AppView.propTypes = {
   score: PropTypes.number,
   currentLevel: PropTypes.number,
   handleClickNextLevel: PropTypes.func,
-}
+  question: PropTypes.object,
+  isRightAnswer: PropTypes.bool,
+};
 
 export default AppView;
