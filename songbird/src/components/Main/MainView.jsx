@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './MainView.module.scss';
 
 import Question from '../Question';
 import AnswerPanel from '../AnswerPanel';
@@ -31,6 +30,7 @@ const MainView = ({
       cathegoriesData={cathegoriesData}
     />
     <Button
+      isRightAnswer={isRightAnswer}
       handleClickNextLevel={handleClickNextLevel}
     />
   </div>
@@ -44,7 +44,7 @@ MainView.propTypes = {
   isFalseAnswer: PropTypes.bool,
   cathegoriesData: PropTypes.array,
   currentAnswer: PropTypes.object,
-  prevAnswer: PropTypes.array,
+  prevAnswers: PropTypes.array,
 };
 
 export default MainView;

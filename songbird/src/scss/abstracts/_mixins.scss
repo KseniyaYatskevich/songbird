@@ -102,27 +102,26 @@
 }
 
 @mixin button-secondary($isWidthSet: false) {
-  @if $isWidthSet {
-    padding: 20 0;
-  } @else {
-    padding: 20px 70px;
-  }
-
   background-color: transparent;
   border: 2px solid $color-dark;
   outline: none;
   cursor: pointer;
   @include font(2.5rem, 400, normal, $font-secondary);
+  @if $isWidthSet {
+    padding: 20 0;
+  } @else {
+    padding: 20px 70px;
+  }
   @include media-laptop {
     font-size: 2rem;
   }
   @include media-tablet {
+    font-size: 1.8rem;
     @if $isWidthSet {
       padding: 7px 0;
     } @else {
       padding: 10px 40px;
     }
-    font-size: 1.8rem;
   }
   @include media-mobile {
     width: 48%;

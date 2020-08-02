@@ -1,0 +1,42 @@
+.answer-info__container {
+  width: 60%;
+  min-height: 252px;
+  padding: 10px;
+  background-color: $color-primary-light;
+  border-radius: 5px;
+}
+
+.answer-info__item {
+  margin-bottom: 10px;
+  @include flex(row, space-between, center);
+}
+
+.answer-info__text {
+  color: $color-light;
+  font-size: 1.4rem;
+}
+
+.answer-info__title {
+  color: $color-light;
+  font-size: 2.4rem;
+}
+
+.answer-info__subtitle {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.answer-info__list {
+  width: calc(100% - 150px);
+  margin: 0;
+  text-align: left;
+  list-style: none;
+  & > li {
+    padding: 5px 0;
+    line-height: 1;
+    border-bottom: 2px solid $color-primary;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

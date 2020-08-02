@@ -19,11 +19,17 @@ class App extends React.Component {
 
   handleClickNextLevel = async () => {
     let { currentLevel } = this.state;
-    this.setState({
-      currentLevel: currentLevel += 1,
-      currentAnswer: {},
-    });
-    await this.getLevelData(currentLevel);
+    const { isRightAnswer } = this.state;
+    if (isRightAnswer) {
+      this.setState({
+        currentLevel: currentLevel += 1,
+        currentAnswer: {},
+        isFalseAnswer: false,
+        isRightAnswer: false,
+        prevAnswers: [],
+      });
+      await this.getLevelData(currentLevel);
+    }
   }
 
   getLevelData = (currentLevel = 0) => {

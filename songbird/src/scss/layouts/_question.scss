@@ -1,10 +1,10 @@
 .question__container {
-  @include flex(row, space-between, center);
-  width: 74%;
-  background-color: $color-secondary;
-  padding: 20px;
-  border-radius: 5px;
+  width: 75%;
   margin: 10px auto;
+  padding: 10px;
+  background-color: $color-primary-light;
+  border-radius: 5px;
+  @include flex(row, space-between, center);
 }
 
 .question__description {
@@ -20,6 +20,7 @@
 
 .question__text {
   width: 100%;
+  color: $color-light;
   font-size: 3rem;
   line-height: 2;
 }

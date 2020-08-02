@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './HeaderView.module.scss';
 import TopPanel from '../TopPanel';
 import Cathegories from '../Cathegories';
 
@@ -23,6 +22,6 @@ const HeaderView = ({
 HeaderView.propTypes = {
   score: PropTypes.number,
   currentLevel: PropTypes.number,
-}
+};
 
 export default HeaderView;

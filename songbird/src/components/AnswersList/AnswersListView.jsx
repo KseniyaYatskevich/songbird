@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import style from './AnswersListView.module.scss';
 
 const AnswersListView = ({
   currentAnswer,
@@ -12,7 +11,6 @@ const AnswersListView = ({
   isFalseAnswer,
   prevAnswers,
 }) => {
-  console.log(isRightAnswer, isFalseAnswer, prevAnswers, question)
   const styleItem = (item) => classNames(
     'answer-list__item',
     { 'answer-list__item_false': (isFalseAnswer || isRightAnswer) && (item.id !== question.id) && (Array.from(prevAnswers).includes(item.id)) },

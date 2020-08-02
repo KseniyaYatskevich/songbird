@@ -1,24 +1,22 @@
 .cathegories__container {
-  @include flex(row, center, center);
   flex-wrap: wrap;
-  padding: 0;
   margin-bottom: 25px;
-  border-radius: 5px;
-  // background-color: $color-secondary;
-  // padding: 10px;
+  padding: 0;
   list-style: none;
+  border-radius: 5px;
+  @include flex(row, center, center);
 }
 
 .cathegories__item {
   display: block;
-  background-color: $color-secondary;
   margin: 0;
-  padding: 1rem 4.8rem;
-  text-align: center;
-  font-size: 1.6rem;
+  padding: 1rem 4rem;
   color: $color-dark;
+  font-size: 1.8rem;
+  text-align: center;
+  background-color: $color-secondary;
   &:first-child {
-    border-radius: 5px 0 0 5px ;
+    border-radius: 5px 0 0 5px;
   }
   &:last-child {
     border-radius: 0 5px 5px 0;

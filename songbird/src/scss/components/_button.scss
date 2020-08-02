@@ -1,0 +1,19 @@
+.button {
+  display: block;
+  width: 76%;
+  margin: 0 auto;
+  padding: 10px;
+  color: $color-light;
+  font-size: 1.8rem;
+  background-color: $color-primary-light;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  &_active {
+    color: $color-dark;
+    background-color: $color-secondary;
+    &:hover {
+      background-color: $color-secondary-active;
+    }
+  }
+}

@@ -7,12 +7,27 @@ const AnswerInfoView = ({
   currentAnswer,
 }) => (
   (Object.keys(currentAnswer).length !== 0)
-    ? <div className={style.container}>
-        <h3>{currentAnswer.name}</h3>
-        <img src={currentAnswer.image} alt=""/>
+    ? <div className="answer-info__container">
+        <div className="answer-info__item">
+          <img className="picture" src={currentAnswer.image} alt=""/>
+          <ul className="answer-info__list">
+            <li>
+              <h3 className="answer-info__title">{currentAnswer.name}</h3>
+            </li>
+            <li>
+              <p className="answer-info__subtitle">{currentAnswer.species}</p>
+            </li>
+            <li>
+            <audio src={currentAnswer.audio} className="audio" controls></audio>
+            </li>
+          </ul>
+        </div>
+        <div className="answer-info__item">
+          <p className="answer-info__text">{currentAnswer.description}</p>
+        </div>
       </div>
-    : <div className={style.container}>
-        <p>Прослушайте мелодию</p>
+    : <div className="answer-info__container">
+        <p className="answer-info__text">Прослушайте мелодию</p>
       </div>
 );
 

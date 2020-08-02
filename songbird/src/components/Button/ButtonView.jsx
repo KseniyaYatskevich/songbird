@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './ButtonView.module.scss';
+import classNames from 'classnames';
 
 const ButtonView = ({
   handleClickNextLevel,
+  isRightAnswer,
 }) => {
-  return(
-    <button className={style.button} onClick={() => handleClickNextLevel()}>Next Level</button>
-  )
-}
+  const buttonStyle = classNames('button', { button_active: isRightAnswer });
+  return (
+    <button className={buttonStyle} onClick={() => handleClickNextLevel()}>Next Level</button>
+  );
+};
 
 ButtonView.propTypes = {
   handleClickNextLevel: PropTypes.func,
-}
+  isRightAnswer: PropTypes.bool,
+};
 
 export default ButtonView;

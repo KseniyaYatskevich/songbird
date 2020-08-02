@@ -1,11 +1,13 @@
 .answer-list__item {
-  cursor: pointer;
-  padding: .85rem 1.25rem;
-  background-color: $color-secondary;
-  border: 1px solid $color-primary;
+  padding: 0.85rem 2rem;
+  color: $color-light;
   font-size: 1.6rem;
-  color: $color-dark;
+  line-height: 1.65;
+  background-color: $color-primary-light;
+  border: 1px solid $color-primary;
+  cursor: pointer;
   &:hover {
+    color: $color-dark;
     background-color: $color-secondary-active;
   }
   &:first-child {
@@ -18,9 +20,9 @@
     display: inline-block;
     width: 15px;
     height: 15px;
-    border-radius: 50%;
     margin-right: 10px;
     background-color: $color-primary;
+    border-radius: 50%;
   }
   &_right {
     & > span {
@@ -35,9 +37,8 @@
 }
 
 .answer-list__container {
-  list-style: none;
-  background-color: $color-secondary;
-  border-radius: 5px;
-  width: 30%;
+  width: 35%;
   padding: 0;
+  list-style: none;
+  border-radius: 5px;
 }
