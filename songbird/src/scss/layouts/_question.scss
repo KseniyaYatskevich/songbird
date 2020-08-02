@@ -1,0 +1,25 @@
+.question__container {
+  @include flex(row, space-between, center);
+  width: 74%;
+  background-color: $color-secondary;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
+.question__description {
+  width: calc(100% - 240px);
+  margin: 0;
+  text-align-last: left;
+  list-style: none;
+  & > li:first-child {
+    margin-bottom: 10px;
+    border-bottom: 2px solid $color-primary;
+  }
+}
+
+.question__text {
+  width: 100%;
+  font-size: 3rem;
+  line-height: 2;
+}

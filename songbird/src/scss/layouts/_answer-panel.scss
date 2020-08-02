@@ -1,0 +1,6 @@
+.answer-panel__container {
+  @include flex(row, space-between, center);
+  width: 74%;
+  margin: 20px auto;
+  border-radius: 5px;
+}

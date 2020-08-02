@@ -9,7 +9,7 @@ const HeaderView = ({
   currentLevel,
 }) => {
   return (
-    <div className={style.container}>
+    <div className="header__container">
       <TopPanel
         score={score}
       />

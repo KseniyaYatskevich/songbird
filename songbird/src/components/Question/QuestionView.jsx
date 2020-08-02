@@ -9,27 +9,27 @@ const QuestionView = ({
   if (question) {
     if (isRightAnswer) {
       return (
-        <div className={style.container}>
-          <img className={style.picture} src={question.image} alt=""/>
-          <ul className={style.description}>
+        <div className="question__container">
+          <img className="picture" src={question.image} alt=""/>
+          <ul className="question__description">
             <li>
-              <h3 className={style.text}>{question.name}</h3>
+              <h3 className="question__text">{question.name}</h3>
             </li>
             <li>
-              <audio src={question.audio} controls></audio>
+              <audio src={question.audio} className="audio" controls></audio>
             </li>
           </ul>
         </div>
       );
     } return (
-      <div className={style.container}>
-        <img className={style.picture} src="assets/img/sicretBird.jpg" alt=""/>
-        <ul className={style.description}>
+      <div className="question__container">
+        <img className="picture" src="assets/img/sicretBird.jpg" alt=""/>
+        <ul className="question__description">
           <li>
-            <h3 className={style.text}>*****</h3>
+            <h3 className="question__text">*****</h3>
           </li>
           <li>
-            <audio src={question.audio} controls></audio>
+            <audio src={question.audio} className="audio" controls></audio>
           </li>
         </ul>
       </div>

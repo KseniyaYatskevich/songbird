@@ -1,0 +1,31 @@
+.cathegories__container {
+  @include flex(row, center, center);
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  // background-color: $color-secondary;
+  // padding: 10px;
+  list-style: none;
+}
+
+.cathegories__item {
+  display: block;
+  background-color: $color-secondary;
+  margin: 0;
+  padding: 1rem 4.8rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: $color-dark;
+  &:first-child {
+    border-radius: 5px 0 0 5px ;
+  }
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+  &_active {
+    box-sizing: border-box;
+    background-color: $color-secondary-active;
+    box-shadow: 0px 6px 21px -1px #cfe37f;
+  }
+}

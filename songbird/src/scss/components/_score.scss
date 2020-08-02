@@ -1,0 +1,8 @@
+.score {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: $color-light;
+  & > span {
+    color: $color-secondary;
+  }
+}

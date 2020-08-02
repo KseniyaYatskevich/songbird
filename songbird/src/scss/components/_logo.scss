@@ -1,0 +1,11 @@
+.logo {
+  font-size: 4.5rem;
+  color: $color-light;
+  font-style: italic;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+  & > span {
+    color: $color-secondary;
+  }
+}

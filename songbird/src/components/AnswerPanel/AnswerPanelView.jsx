@@ -9,12 +9,21 @@ const AnswerPanelView = ({
   cathegoriesData,
   handleAnswerClick,
   currentAnswer,
+  isRightAnswer,
+  isFalseAnswer,
+  question,
+  prevAnswers,
 }) => {
   return (
-    <div className={style.container}>
+    <div className="answer-panel__container">
       <AnswersList
+        isRightAnswer={isRightAnswer}
+        isFalseAnswer={isFalseAnswer}
         cathegoriesData={cathegoriesData}
         handleAnswerClick={handleAnswerClick}
+        currentAnswer={currentAnswer}
+        question={question}
+        prevAnswers={prevAnswers}
       />
       <AnswerInfo
         currentAnswer={currentAnswer}
@@ -24,9 +33,13 @@ const AnswerPanelView = ({
 };
 
 AnswerPanelView.propTypes = {
+  isRightAnswer: PropTypes.bool,
+  isFalseAnswer: PropTypes.bool,
   cathegoriesData: PropTypes.array,
   handleAnswerClick: PropTypes.func,
   currentAnswer: PropTypes.object,
+  question: PropTypes.object,
+  prevAnswers: PropTypes.array,
 };
 
 export default AnswerPanelView;

@@ -1,28 +1,25 @@
 // Abstacts from main
-@import '../../scss/abstracts/constants';
-@import '../../scss/abstracts/mixins';
-
-// Abstarcs
-
+@import './scss/abstracts/constants';
+@import './scss/abstracts/mixins';
 @import './scss/abstracts/placeholders';
 
-// Base
-@import '../../scss/base/base';
-@import '../../scss/base/typography';
+//Base
 @import './scss/base/base';
+@import './scss/base/typography';
 
 // Layouts
-@import './scss/layouts/start-page';
-@import './scss/layouts/finish-page';
+@import './scss/layouts/header';
+@import './scss/layouts/question';
 @import './scss/layouts/answer-panel';
-@import './scss/layouts/game-page';
+@import './scss/layouts/answer-list';
 
 // Components
-@import './scss/components/question';
-@import './scss/components/audio-icon';
-@import './scss/components/button';
-@import './scss/components/levels-stepper';
-@import './scss/components/answer';
+@import './scss/components/logo';
+@import './scss/components/top-panel';
+@import './scss/components/score';
+@import './scss/components/cathegories';
+@import './scss/components/audio';
+@import './scss/components/picture';
 
 // Vendors
 @import './scss/vendors/normalize';

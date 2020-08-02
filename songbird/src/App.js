@@ -11,7 +11,9 @@ class App extends React.Component {
       currentLevel: 0,
       cathegoriesData: data[0],
       isRightAnswer: false,
+      isFalseAnswer: false,
       currentAnswer: {},
+      prevAnswers: [],
     };
   }
 
@@ -39,10 +41,16 @@ class App extends React.Component {
   }
 
   handleAnswerClick = (answer) => {
-    console.log(answer);
-    this.setState({
-      currentAnswer: answer,
-    });
+    const { question, prevAnswers, isRightAnswer } = this.state;
+    prevAnswers.push(answer.id);
+    if (!isRightAnswer) {
+      this.setState({
+        currentAnswer: answer,
+        prevAnswers,
+        isFalseAnswer: (answer.id !== question.id),
+        isRightAnswer: (answer.id === question.id),
+      });
+    }
   }
 
   componentDidMount() {
@@ -57,10 +65,13 @@ class App extends React.Component {
       cathegoriesData,
       question,
       isRightAnswer,
+      isFalseAnswer,
       currentAnswer,
+      prevAnswers,
     } = this.state;
     return (
       <AppView
+        prevAnswers={prevAnswers}
         currentAnswer={currentAnswer}
         score={score}
         currentLevel={currentLevel}
@@ -68,6 +79,7 @@ class App extends React.Component {
         handleAnswerClick={this.handleAnswerClick}
         question={question}
         isRightAnswer={isRightAnswer}
+        isFalseAnswer={isFalseAnswer}
         cathegoriesData={cathegoriesData}
       />
     );

@@ -1,0 +1,4 @@
+.top-panel__container {
+  @include flex(row, space-between, center);
+  margin: 0 auto;
+}
