@@ -1,0 +1,13 @@
+.answer {
+  cursor: pointer;
+  padding: .85rem 1.25rem;
+  background-color: #303030;
+  border: 1px solid #555;
+  &:hover {
+    background-color: #cbcbcb;
+  }
+}
+
+.container {
+  width: 30%;
+}

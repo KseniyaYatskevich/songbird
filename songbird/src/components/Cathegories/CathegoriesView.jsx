@@ -10,13 +10,11 @@ const CathegoriesView = ({
   const itemStyle = (index) => (classNames(style.item, (currentLevel === index) ? style.active : 'none'));
   return (
     <ul className={style.container}>
-      {cathegories.map((item, index) => {
-          return (
-              <li className={itemStyle(index)} key={index}>{item}</li>
-          )
-      })}     
+      {cathegories.map((item, index) => (
+        <li className={itemStyle(index)} key={index}>{item}</li>
+      ))}
     </ul>
   );
-}
+};
 
 export default CathegoriesView;

@@ -11,6 +11,7 @@ class App extends React.Component {
       currentLevel: 0,
       cathegoriesData: data[0],
       isRightAnswer: false,
+      currentAnswer: {},
     };
   }
 
@@ -18,6 +19,7 @@ class App extends React.Component {
     let { currentLevel } = this.state;
     this.setState({
       currentLevel: currentLevel += 1,
+      currentAnswer: {},
     });
     await this.getLevelData(currentLevel);
   }
@@ -36,6 +38,13 @@ class App extends React.Component {
     return cathegoriesData[questionNumber];
   }
 
+  handleAnswerClick = (answer) => {
+    console.log(answer);
+    this.setState({
+      currentAnswer: answer,
+    });
+  }
+
   componentDidMount() {
     const { currentLevel } = this.state;
     this.getLevelData(currentLevel);
@@ -48,14 +57,18 @@ class App extends React.Component {
       cathegoriesData,
       question,
       isRightAnswer,
+      currentAnswer,
     } = this.state;
     return (
       <AppView
+        currentAnswer={currentAnswer}
         score={score}
         currentLevel={currentLevel}
         handleClickNextLevel={this.handleClickNextLevel}
+        handleAnswerClick={this.handleAnswerClick}
         question={question}
         isRightAnswer={isRightAnswer}
+        cathegoriesData={cathegoriesData}
       />
     );
   }

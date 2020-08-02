@@ -10,13 +10,20 @@ const MainView = ({
   handleClickNextLevel,
   question,
   isRightAnswer,
+  cathegoriesData,
+  handleAnswerClick,
+  currentAnswer,
 }) => (
   <div className={style.container}>
     <Question
       question={question}
       isRightAnswer={isRightAnswer}
     />
-    <AnswerPanel />
+    <AnswerPanel
+      currentAnswer={currentAnswer}
+      handleAnswerClick={handleAnswerClick}
+      cathegoriesData={cathegoriesData}
+    />
     <Button
       handleClickNextLevel={handleClickNextLevel}
     />
@@ -25,8 +32,11 @@ const MainView = ({
 
 MainView.propTypes = {
   handleClickNextLevel: PropTypes.func,
+  handleAnswerClick: PropTypes.func,
   question: PropTypes.object,
   isRightAnswer: PropTypes.bool,
+  cathegoriesData: PropTypes.array,
+  currentAnswer: PropTypes.object,
 };
 
 export default MainView;

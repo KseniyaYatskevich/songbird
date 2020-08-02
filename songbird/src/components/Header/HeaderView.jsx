@@ -4,22 +4,21 @@ import style from './HeaderView.module.scss';
 import TopPanel from '../TopPanel';
 import Cathegories from '../Cathegories';
 
-const  HeaderView = ({
+const HeaderView = ({
   score,
   currentLevel,
 }) => {
-  console.log(score, 1)
   return (
     <div className={style.container}>
-      <TopPanel 
+      <TopPanel
         score={score}
       />
-      <Cathegories 
+      <Cathegories
         currentLevel={currentLevel}
       />
     </div>
   );
-}
+};
 
 HeaderView.propTypes = {
   score: PropTypes.number,
