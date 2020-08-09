@@ -22,7 +22,7 @@ const QuestionView = ({
       );
     } return (
       <div className="question__container">
-        <img className="picture" src="assets/img/sicretBird.jpg" alt=""/>
+        <img className="picture" src="assets/img/sicretFilm.png" alt=""/>
         <ul className="question__description">
           <li>
             <h3 className="question__text">*****</h3>

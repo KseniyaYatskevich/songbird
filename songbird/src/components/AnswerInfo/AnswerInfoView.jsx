@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import classNames from 'classnames';
-import style from './AnswerInfoView.module.scss';
 
 const AnswerInfoView = ({
   currentAnswer,
@@ -15,7 +14,7 @@ const AnswerInfoView = ({
               <h3 className="answer-info__title">{currentAnswer.name}</h3>
             </li>
             <li>
-              <p className="answer-info__subtitle">{currentAnswer.species}</p>
+              <p className="answer-info__subtitle">{currentAnswer.year}</p>
             </li>
             <li>
             <audio src={currentAnswer.audio} className="audio" controls></audio>

@@ -1,5 +1,5 @@
 .answer-info__container {
-  width: 60%;
+  width: 50%;
   min-height: 252px;
   padding: 10px;
   background-color: $color-primary-light;
@@ -7,6 +7,7 @@
 }
 
 .answer-info__item {
+  text-wrap: none;
   margin-bottom: 10px;
   @include flex(row, space-between, center);
 }

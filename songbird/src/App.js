@@ -1,5 +1,5 @@
 import React from 'react';
-import data from './helpers/birdsData';
+import data from './helpers/movieData';
 // import PropTypes from 'prop-types';
 import AppView from './AppView.jsx';
 
