@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      errors: 0,
       score: 0,
       currentLevel: 0,
       cathegoriesData: data[0],
@@ -22,6 +23,7 @@ class App extends React.Component {
     const { isRightAnswer } = this.state;
     if (isRightAnswer) {
       this.setState({
+        errors: 0,
         currentLevel: currentLevel += 1,
         currentAnswer: {},
         isFalseAnswer: false,
@@ -47,12 +49,20 @@ class App extends React.Component {
   }
 
   handleAnswerClick = (answer) => {
-    const { question, prevAnswers, isRightAnswer } = this.state;
+    const {
+      question,
+      prevAnswers,
+      isRightAnswer,
+      score,
+      errors,
+    } = this.state;
     prevAnswers.push(answer.id);
     if (!isRightAnswer) {
       this.setState({
         currentAnswer: answer,
         prevAnswers,
+        score: (answer.id === question.id) ? (score + 5 - errors) : score,
+        errors: (answer.id !== question.id) ? (errors + 1) : errors,
         isFalseAnswer: (answer.id !== question.id),
         isRightAnswer: (answer.id === question.id),
       });
