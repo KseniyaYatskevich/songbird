@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TopPanel from '../TopPanel';
-import Cathegories from '../Cathegories';
+import Categories from '../Categories';
 
 const HeaderView = ({
   score,
@@ -12,7 +12,7 @@ const HeaderView = ({
       <TopPanel
         score={score}
       />
-      <Cathegories
+      <Categories
         currentLevel={currentLevel}
       />
     </div>

@@ -8,41 +8,38 @@ import Button from '../Button';
 const MainView = ({
   handleClickNextLevel,
   question,
-  isRightAnswer,
-  isFalseAnswer,
-  cathegoriesData,
+  categoriesData,
   handleAnswerClick,
   currentAnswer,
   prevAnswers,
+  isAnsweredQuestion,
 }) => (
   <div>
-    <Question
+    {question && <Question
       question={question}
-      isRightAnswer={isRightAnswer}
-    />
+      isAnsweredQuestion={isAnsweredQuestion}
+    />}
     <AnswerPanel
+      isAnsweredQuestion={isAnsweredQuestion}
       prevAnswers={prevAnswers}
-      isRightAnswer={isRightAnswer}
-      isFalseAnswer={isFalseAnswer}
       currentAnswer={currentAnswer}
       question={question}
       handleAnswerClick={handleAnswerClick}
-      cathegoriesData={cathegoriesData}
+      categoriesData={categoriesData}
     />
     <Button
-      isRightAnswer={isRightAnswer}
+      isAnsweredQuestion={isAnsweredQuestion}
       handleClickNextLevel={handleClickNextLevel}
     />
   </div>
 );
 
 MainView.propTypes = {
+  isAnsweredQuestion: PropTypes.bool,
   handleClickNextLevel: PropTypes.func,
   handleAnswerClick: PropTypes.func,
   question: PropTypes.object,
-  isRightAnswer: PropTypes.bool,
-  isFalseAnswer: PropTypes.bool,
-  cathegoriesData: PropTypes.array,
+  categoriesData: PropTypes.array,
   currentAnswer: PropTypes.object,
   prevAnswers: PropTypes.array,
 };

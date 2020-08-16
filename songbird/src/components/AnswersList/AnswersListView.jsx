@@ -5,22 +5,22 @@ import classNames from 'classnames';
 const AnswersListView = ({
   currentAnswer,
   question,
-  cathegoriesData,
+  categoriesData,
   handleAnswerClick,
-  isRightAnswer,
-  isFalseAnswer,
   prevAnswers,
+  isAnsweredQuestion,
 }) => {
-  const styleItem = (item) => classNames(
+  console.log(isAnsweredQuestion)
+  const styleItem = (answerId) => classNames(
     'answer-list__item',
-    { 'answer-list__item_false': (isFalseAnswer || isRightAnswer) && (item.id !== question.id) && (Array.from(prevAnswers).includes(item.id)) },
-    { 'answer-list__item_right': (isRightAnswer) && (currentAnswer.id === item.id) && (currentAnswer.id === question.id) },
+    { 'answer-list__item_false': prevAnswers.includes(answerId) && answerId !== question.id },
+    { 'answer-list__item_right': prevAnswers.includes(answerId) && answerId === question.id },
   );
   return (
     <ul className="answer-list__container">
-      {cathegoriesData.map((item, index) => (
+      {categoriesData.map((item, index) => (
           <li
-            className={styleItem(item)}
+            className={styleItem(item.id)}
             key={index}
             onClick={() => handleAnswerClick(item)}
           >
@@ -32,11 +32,10 @@ const AnswersListView = ({
 };
 
 AnswersListView.propTypes = {
+  isAnsweredQuestion: PropTypes.bool,
   currentAnswer: PropTypes.object,
   question: PropTypes.object,
-  isRightAnswer: PropTypes.bool,
-  isFalseAnswer: PropTypes.bool,
-  cathegoriesData: PropTypes.array,
+  categoriesData: PropTypes.array,
   handleAnswerClick: PropTypes.func,
   prevAnswers: PropTypes.array,
 };

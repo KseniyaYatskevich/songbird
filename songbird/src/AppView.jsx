@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Main from './components/Main';
 import Header from './components/Header';
+import FinishPage from './components/FinishPage';
 
 const AppView = ({
   score,
@@ -10,41 +11,50 @@ const AppView = ({
   currentAnswer,
   handleClickNextLevel,
   question,
-  isRightAnswer,
-  isFalseAnswer,
-  cathegoriesData,
+  isAnsweredQuestion,
+  categoriesData,
   handleAnswerClick,
   prevAnswers,
-}) => (
-  <div className="app__container">
-    <Header
-      score={score}
-      currentLevel={currentLevel}
-    />
-    <Main
-      prevAnswers={prevAnswers}
-      currentAnswer={currentAnswer}
-      cathegoriesData={cathegoriesData}
-      isRightAnswer={isRightAnswer}
-      isFalseAnswer={isFalseAnswer}
-      question={question}
-      handleClickNextLevel={handleClickNextLevel}
-      handleAnswerClick={handleAnswerClick}
-    />
-  </div>
-);
+  isEndGame,
+  startNewGame,
+}) => {
+  console.log(question ? `Ответ: ${question.name}` : null);
+  return (
+    <div className="app__container">
+      <Header
+        score={score}
+        currentLevel={currentLevel}
+      />
+    {!isEndGame
+      ? <Main
+          isAnsweredQuestion={isAnsweredQuestion}
+          prevAnswers={prevAnswers}
+          currentAnswer={currentAnswer}
+          categoriesData={categoriesData}
+          question={question}
+          handleClickNextLevel={handleClickNextLevel}
+          handleAnswerClick={handleAnswerClick}
+        />
+      : <FinishPage
+        score={score}
+        startNewGame={startNewGame}
+        />}
+    </div>
+  );
+};
 
 AppView.propTypes = {
+  isEndGame: PropTypes.bool,
+  isAnsweredQuestion: PropTypes.bool,
   score: PropTypes.number,
   currentLevel: PropTypes.number,
   handleClickNextLevel: PropTypes.func,
   handleAnswerClick: PropTypes.func,
   question: PropTypes.object,
-  isRightAnswer: PropTypes.bool,
-  isFalseAnswer: PropTypes.bool,
-  cathegoriesData: PropTypes.array,
+  categoriesData: PropTypes.array,
   currentAnswer: PropTypes.object,
   prevAnswers: PropTypes.array,
+  startNewGame: PropTypes.func,
 };
 
 export default AppView;

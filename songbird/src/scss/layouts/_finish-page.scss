@@ -1,0 +1,40 @@
+.finish-page__container {
+  width: 75%;
+  margin: 10px auto;
+  background: $color-primary-light;
+  border-radius: 5px;
+  padding: 40px 10px;
+  text-align: center;
+  color: $color-light;
+  &_win {
+    color: $color-dark;
+    background-color: $color-secondary;
+  }
+}
+
+.finish-page__title {
+  color: $color-light;
+  font-size: 5rem;
+  line-height: 2;
+}
+
+.finish-page__subtitle {
+  color: $color-light;
+  font-size: 3.5rem;
+  line-height: 2;
+  margin: 40px 0;
+}
+
+.finish-page__text {
+  font-size: 3rem;
+  margin: 40px 0;
+  & > span {
+    font-weight: bold;
+  }
+}
+
+.finish-page__picture {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}

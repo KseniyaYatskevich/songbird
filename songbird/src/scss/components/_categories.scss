@@ -1,4 +1,4 @@
-.cathegories__container {
+.categories__container {
   flex-wrap: wrap;
   margin-bottom: 25px;
   padding: 0;
@@ -7,7 +7,7 @@
   @include flex(row, center, center);
 }
 
-.cathegories__item {
+.categories__item {
   display: block;
   margin: 0;
   padding: 1rem 4rem;

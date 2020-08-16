@@ -5,20 +5,19 @@ import AnswersList from '../AnswersList';
 import AnswerInfo from '../AnswerInfo';
 
 const AnswerPanelView = ({
-  cathegoriesData,
+  categoriesData,
   handleAnswerClick,
   currentAnswer,
-  isRightAnswer,
-  isFalseAnswer,
   question,
   prevAnswers,
+  isAnsweredQuestion,
 }) => {
+  console.log(isAnsweredQuestion, 1)
   return (
     <div className="answer-panel__container">
       <AnswersList
-        isRightAnswer={isRightAnswer}
-        isFalseAnswer={isFalseAnswer}
-        cathegoriesData={cathegoriesData}
+        isAnsweredQuestion={isAnsweredQuestion}
+        categoriesData={categoriesData}
         handleAnswerClick={handleAnswerClick}
         currentAnswer={currentAnswer}
         question={question}
@@ -32,9 +31,8 @@ const AnswerPanelView = ({
 };
 
 AnswerPanelView.propTypes = {
-  isRightAnswer: PropTypes.bool,
-  isFalseAnswer: PropTypes.bool,
-  cathegoriesData: PropTypes.array,
+  isAnsweredQuestion: PropTypes.bool,
+  categoriesData: PropTypes.array,
   handleAnswerClick: PropTypes.func,
   currentAnswer: PropTypes.object,
   question: PropTypes.object,

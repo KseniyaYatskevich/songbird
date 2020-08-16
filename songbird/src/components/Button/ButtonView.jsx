@@ -4,9 +4,9 @@ import classNames from 'classnames';
 
 const ButtonView = ({
   handleClickNextLevel,
-  isRightAnswer,
+  isAnsweredQuestion,
 }) => {
-  const buttonStyle = classNames('button', { button_active: isRightAnswer });
+  const buttonStyle = classNames('button', { button_active: isAnsweredQuestion });
   return (
     <button className={buttonStyle} onClick={() => handleClickNextLevel()}>Next Level</button>
   );
@@ -14,7 +14,7 @@ const ButtonView = ({
 
 ButtonView.propTypes = {
   handleClickNextLevel: PropTypes.func,
-  isRightAnswer: PropTypes.bool,
+  isAnsweredQuestion: PropTypes.bool,
 };
 
 export default ButtonView;

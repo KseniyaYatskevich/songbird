@@ -10,63 +10,89 @@ class App extends React.Component {
       errors: 0,
       score: 0,
       currentLevel: 0,
-      cathegoriesData: data[0],
-      isRightAnswer: false,
-      isFalseAnswer: false,
-      currentAnswer: {},
+      categoriesData: data[0],
+      currentAnswer: null,
       prevAnswers: [],
+      isAnsweredQuestion: false,
+      isEndGame: true,
     };
   }
 
   handleClickNextLevel = async () => {
     let { currentLevel } = this.state;
-    const { isRightAnswer } = this.state;
-    if (isRightAnswer) {
+    const { isAnsweredQuestion } = this.state;
+    if (!isAnsweredQuestion) return;
+    if (isAnsweredQuestion && (currentLevel !== 5)) {
+      currentLevel += 1;
       this.setState({
         errors: 0,
-        currentLevel: currentLevel += 1,
-        currentAnswer: {},
-        isFalseAnswer: false,
-        isRightAnswer: false,
+        currentLevel,
+        currentAnswer: null,
+        isAnsweredQuestion: false,
         prevAnswers: [],
       });
-      await this.getLevelData(currentLevel);
+      this.getLevelData(currentLevel);
+    } else {
+      this.setState({
+        isEndGame: true,
+      });
     }
   }
 
   getLevelData = (currentLevel = 0) => {
-    const cathegoriesData = data[currentLevel];
-    const question = this.getQuestion(cathegoriesData);
-    this.setState({
-      cathegoriesData,
-      question,
-    });
+    if (currentLevel !== 6) {
+      const categoriesData = data[currentLevel];
+      const question = this.getQuestion(categoriesData);
+      this.setState({
+        categoriesData,
+        question,
+      });
+    }
   }
 
-  getQuestion = (cathegoriesData) => {
-    const questionNumber = Math.floor(Math.random() * cathegoriesData.length);
-    return cathegoriesData[questionNumber];
+  getQuestion = (categoriesData) => {
+    if (categoriesData) {
+      const questionNumber = Math.floor(Math.random() * categoriesData.length);
+      return categoriesData[questionNumber];
+    }
   }
 
   handleAnswerClick = (answer) => {
     const {
       question,
       prevAnswers,
-      isRightAnswer,
       score,
       errors,
     } = this.state;
-    prevAnswers.push(answer.id);
-    if (!isRightAnswer) {
+    let { isAnsweredQuestion } = this.state;
+    if (isAnsweredQuestion) {
       this.setState({
         currentAnswer: answer,
-        prevAnswers,
-        score: (answer.id === question.id) ? (score + 5 - errors) : score,
-        errors: (answer.id !== question.id) ? (errors + 1) : errors,
-        isFalseAnswer: (answer.id !== question.id),
-        isRightAnswer: (answer.id === question.id),
+      });
+    } else {
+      const prevAnswersNew = [...prevAnswers, answer.id];
+      isAnsweredQuestion = question.id === answer.id;
+      this.setState({
+        isAnsweredQuestion,
+        currentAnswer: answer,
+        prevAnswers: prevAnswersNew,
+        score: isAnsweredQuestion ? (score + 5 - errors) : score,
+        errors: !isAnsweredQuestion ? (errors + 1) : errors,
       });
     }
+  }
+
+  startNewGame = () => {
+    this.setState({
+      errors: 0,
+      score: 0,
+      currentLevel: 0,
+      categoriesData: data[0],
+      currentAnswer: null,
+      prevAnswers: [],
+      isAnsweredQuestion: false,
+      isEndGame: false,
+    });
   }
 
   componentDidMount() {
@@ -78,15 +104,18 @@ class App extends React.Component {
     const {
       score,
       currentLevel,
-      cathegoriesData,
+      categoriesData,
       question,
-      isRightAnswer,
-      isFalseAnswer,
       currentAnswer,
       prevAnswers,
+      isEndGame,
+      isAnsweredQuestion,
     } = this.state;
     return (
       <AppView
+        startNewGame={this.startNewGame}
+        isAnsweredQuestion={isAnsweredQuestion}
+        isEndGame={isEndGame}
         prevAnswers={prevAnswers}
         currentAnswer={currentAnswer}
         score={score}
@@ -94,9 +123,7 @@ class App extends React.Component {
         handleClickNextLevel={this.handleClickNextLevel}
         handleAnswerClick={this.handleAnswerClick}
         question={question}
-        isRightAnswer={isRightAnswer}
-        isFalseAnswer={isFalseAnswer}
-        cathegoriesData={cathegoriesData}
+        categoriesData={categoriesData}
       />
     );
   }
