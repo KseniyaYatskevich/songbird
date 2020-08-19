@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/src/styles.scss';
 // import classNames from 'classnames';
 
 const AnswerInfoView = ({
@@ -19,7 +21,14 @@ const AnswerInfoView = ({
                   <p className="answer-info__subtitle">{currentAnswer.year}</p>
                 </li>
                 <li>
-                <audio src={currentAnswer.audio} className="audio" controls></audio>
+                  <AudioPlayer
+                    src={currentAnswer.audio}
+                    showSkipControls={false}
+                    showJumpControls={false}
+                    customAdditionalControls={[]}
+                    layout="horizontal-reverse"
+                    autoPlayAfterSrcChange={false}
+                  />
                 </li>
               </ul>
             </div>

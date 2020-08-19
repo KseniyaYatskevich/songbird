@@ -14,7 +14,7 @@ class App extends React.Component {
       currentAnswer: null,
       prevAnswers: [],
       isAnsweredQuestion: false,
-      isEndGame: true,
+      isEndGame: false,
     };
   }
 
@@ -72,6 +72,10 @@ class App extends React.Component {
     } else {
       const prevAnswersNew = [...prevAnswers, answer.id];
       isAnsweredQuestion = question.id === answer.id;
+      if (isAnsweredQuestion) {
+        console.log(this.audioRef, 123)
+      }
+      // isAnsweredQuestion ? this.audioRef.current.audio.current.stop() : null;
       this.setState({
         isAnsweredQuestion,
         currentAnswer: answer,
