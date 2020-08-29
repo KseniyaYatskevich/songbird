@@ -6,7 +6,7 @@ const TopPanelView = ({
 }) => {
   return (
     <div className="top-panel__container">
-      <h1 className="logo">Song<span>bird</span></h1>
+      <h1 className="logo">Movie<span>Song</span></h1>
       <div className="score">Score: <span>{score}</span></div>
     </div>
   );

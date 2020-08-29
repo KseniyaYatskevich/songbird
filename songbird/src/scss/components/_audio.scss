@@ -42,6 +42,9 @@ body .rhap_container {
   .rhap_additional-controls {
     flex: 0 1 auto;
   }
+  .rhap_progress-bar-show-download {
+    background-color: $color-light;
+  }
 }
 
 body .rhap_volume-container {

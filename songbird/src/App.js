@@ -3,6 +3,12 @@ import data from './helpers/movieData';
 // import PropTypes from 'prop-types';
 import AppView from './AppView.jsx';
 
+import {
+  soundSuccess,
+  soundError,
+  soundFinish
+} from './helpers/constants';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +41,7 @@ class App extends React.Component {
     } else {
       this.setState({
         isEndGame: true,
-      });
+      }, this.playAudio(soundFinish));
     }
   }
 
@@ -72,10 +78,7 @@ class App extends React.Component {
     } else {
       const prevAnswersNew = [...prevAnswers, answer.id];
       isAnsweredQuestion = question.id === answer.id;
-      if (isAnsweredQuestion) {
-        console.log(this.audioRef, 123)
-      }
-      // isAnsweredQuestion ? this.audioRef.current.audio.current.stop() : null;
+      isAnsweredQuestion ? this.playAudio(soundSuccess) : this.playAudio(soundError)
       this.setState({
         isAnsweredQuestion,
         currentAnswer: answer,
@@ -86,17 +89,27 @@ class App extends React.Component {
     }
   }
 
+  playAudio = (path) => {
+    const audioElement = new Audio(path);
+    audioElement.play();
+  };
+
   startNewGame = () => {
-    this.setState({
-      errors: 0,
-      score: 0,
-      currentLevel: 0,
-      categoriesData: data[0],
-      currentAnswer: null,
-      prevAnswers: [],
-      isAnsweredQuestion: false,
-      isEndGame: false,
-    });
+    console.log(this.state)
+    const { isEndGame } = this.state;
+    if (isEndGame) {
+      this.getLevelData();
+      this.setState({
+        errors: 0,
+        score: 0,
+        currentLevel: 0,
+        categoriesData: data[0],
+        currentAnswer: null,
+        prevAnswers: [],
+        isAnsweredQuestion: false,
+        isEndGame: false,
+      });
+    }
   }
 
   componentDidMount() {
