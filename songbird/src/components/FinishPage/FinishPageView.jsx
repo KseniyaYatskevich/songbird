@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { textContent, maxScore } from '../../helpers/constants';
 
 const FinishPageView = ({ score, startNewGame }) => {
-  const winner = score === { maxScore };
+  const winner = score === maxScore;
   const finishStyles = classNames('finish-page__container');
   const { buttons: { newGame } } = textContent;
   return (
