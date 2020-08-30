@@ -20,7 +20,6 @@ const MainView = ({
       isAnsweredQuestion={isAnsweredQuestion}
     />}
     <AnswerPanel
-      isAnsweredQuestion={isAnsweredQuestion}
       prevAnswers={prevAnswers}
       currentAnswer={currentAnswer}
       question={question}

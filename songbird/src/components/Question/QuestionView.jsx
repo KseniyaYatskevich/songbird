@@ -29,6 +29,7 @@ class QuestionView extends React.Component {
               showJumpControls={false}
               customAdditionalControls={[]}
               layout="horizontal-reverse"
+              autoPlayAfterSrcChange={false}
               ref={this.audioRef}
             />
           </li>
@@ -36,7 +37,7 @@ class QuestionView extends React.Component {
       </div>
     );
   }
-};
+}
 
 QuestionView.propTypes = {
   question: PropTypes.object,

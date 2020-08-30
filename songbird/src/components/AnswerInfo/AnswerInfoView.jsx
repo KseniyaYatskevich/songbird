@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/src/styles.scss';
-// import classNames from 'classnames';
+import { textContent } from '../../helpers/constants';
 
 const AnswerInfoView = ({
   currentAnswer,
@@ -36,7 +36,7 @@ const AnswerInfoView = ({
               <p className="answer-info__text">{currentAnswer.description}</p>
             </div>
           </>
-        : <p className="answer-info__text">Прослушайте мелодию</p>
+        : <p className="answer-info__text">{textContent.task}</p>
     }
     </div>
 );

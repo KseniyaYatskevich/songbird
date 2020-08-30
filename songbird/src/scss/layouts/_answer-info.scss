@@ -1,11 +1,10 @@
 .answer-info__container {
   width: 50%;
-  min-height: 252px;
+  min-height: 300px;
   padding: 10px;
   background-color: $color-primary-light;
-  border-radius: 5px;
+  border-radius: 5px;  
   @media (max-width: $laptop-width) {
-    box-sizing: border-box;
     width: 100%;
     min-height: 100px;
     margin-bottom: 10px;
@@ -22,12 +21,12 @@
 
 .answer-info__text {
   color: $color-light;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 .answer-info__title {
   color: $color-light;
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 .answer-info__subtitle {

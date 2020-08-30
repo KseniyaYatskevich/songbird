@@ -14,6 +14,7 @@
     background-color: $color-secondary;
     &:hover {
       background-color: $color-secondary-active;
+      cursor: pointer;
     }
   }
 }

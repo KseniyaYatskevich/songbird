@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Main from './components/Main';
-import Header from './components/Header';
-import FinishPage from './components/FinishPage';
+import Main from '../Main';
+import Header from '../Header';
+import FinishPage from '../FinishPage';
 
 const AppView = ({
   score,
@@ -18,7 +18,9 @@ const AppView = ({
   isEndGame,
   startNewGame,
 }) => {
-  console.log(question ? `Ответ: ${question.name}` : null);
+  if (!isAnsweredQuestion) {
+    console.log((question) ? `Ответ: ${question.name}` : null);    
+  }
   return (
     <div className="app__container">
       <Header

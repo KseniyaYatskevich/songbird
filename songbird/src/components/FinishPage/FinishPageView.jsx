@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { textContent, maxScore } from '../../helpers/constants';
 
 const FinishPageView = ({ score, startNewGame }) => {
-  const winner = score === 30;
+  const winner = score === { maxScore };
   const finishStyles = classNames('finish-page__container');
+  const { buttons: { newGame } } = textContent;
   return (
     <div className={finishStyles}>
       <h2 className="finish-page__title">Поздравляем!</h2>
@@ -15,8 +17,8 @@ const FinishPageView = ({ score, startNewGame }) => {
           </>
         : <h3 className="finish-page__subtitle">Игра окончена!</h3>
       }
-      <p className="finish-page__text">Вы набрали <span>{score}</span> очков из <span>30</span>.</p>
-      <button className="button button_active" onClick={() => startNewGame()}>Начать новую игру</button>
+      <p className="finish-page__text">Вы набрали <span>{score}</span> очков из <span>{maxScore}</span>.</p>
+      <button className="button button_active" onClick={() => startNewGame()}>{newGame}</button>
     </div>
   );
 };

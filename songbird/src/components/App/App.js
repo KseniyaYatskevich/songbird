@@ -1,13 +1,15 @@
 import React from 'react';
-import data from './helpers/movieData';
-// import PropTypes from 'prop-types';
-import AppView from './AppView.jsx';
+import data from '../../helpers/movieData';
+import AppView from './AppView';
 
 import {
   soundSuccess,
   soundError,
-  soundFinish
-} from './helpers/constants';
+  soundFinish,
+  minQuestionScore,
+  maxQuestionScore,
+  textContent
+} from '../../helpers/constants';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,8 +29,9 @@ class App extends React.Component {
   handleClickNextLevel = async () => {
     let { currentLevel } = this.state;
     const { isAnsweredQuestion } = this.state;
+    const maxLevel = textContent.categories.length;
     if (!isAnsweredQuestion) return;
-    if (isAnsweredQuestion && (currentLevel !== 5)) {
+    if (isAnsweredQuestion && (currentLevel !== maxLevel - 1)) {
       currentLevel += 1;
       this.setState({
         errors: 0,
@@ -46,7 +49,8 @@ class App extends React.Component {
   }
 
   getLevelData = (currentLevel = 0) => {
-    if (currentLevel !== 6) {
+    const maxLevel = textContent.categories.length;
+    if (currentLevel !== maxLevel) {
       const categoriesData = data[currentLevel];
       const question = this.getQuestion(categoriesData);
       this.setState({
@@ -83,8 +87,8 @@ class App extends React.Component {
         isAnsweredQuestion,
         currentAnswer: answer,
         prevAnswers: prevAnswersNew,
-        score: isAnsweredQuestion ? (score + 5 - errors) : score,
-        errors: !isAnsweredQuestion ? (errors + 1) : errors,
+        score: isAnsweredQuestion ? (score + maxQuestionScore - errors) : score,
+        errors: !isAnsweredQuestion ? (errors + minQuestionScore) : errors,
       });
     }
   }

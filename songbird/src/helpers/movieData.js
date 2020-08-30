@@ -112,7 +112,7 @@ const movieData = [
       id: 2,
       name: 'Пираты карибского моря: Проклятие черной жемчужины',
       year: '2003',
-      description: 'Первый фильмм серии приключенческих фильмов о пиратах, действие которого разворачивается на Карибах в первой половине XVIII века.',
+      description: 'Первый фильм серии приключенческих фильмов о пиратах, действие которого разворачивается на Карибах в первой половине XVIII века.',
       image: './assets/foreignCinema/img/piratesOfCaribian.jpg',
       audio: './assets/foreignCinema/audio/piratesOfCaribian.mp3',
     },

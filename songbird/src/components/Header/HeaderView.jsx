@@ -6,18 +6,16 @@ import Categories from '../Categories';
 const HeaderView = ({
   score,
   currentLevel,
-}) => {
-  return (
-    <div className="header__container">
-      <TopPanel
-        score={score}
-      />
-      <Categories
-        currentLevel={currentLevel}
-      />
-    </div>
-  );
-};
+}) => (
+  <div className="header__container">
+    <TopPanel
+      score={score}
+    />
+    <Categories
+      currentLevel={currentLevel}
+    />
+  </div>
+);
 
 HeaderView.propTypes = {
   score: PropTypes.number,
