@@ -1,0 +1,28 @@
+// Abstacts from main
+@import './abstracts/constants';
+@import './abstracts/mixins';
+@import './abstracts/placeholders';
+
+//Base
+@import './base/base';
+@import './base/typography';
+
+// Layouts
+@import './layouts/header';
+@import './layouts/question';
+@import './layouts/answer-panel';
+@import './layouts/answer-list';
+@import './layouts/answer-info';
+@import './layouts/finish-page';
+
+// Components
+@import './components/logo';
+@import './components/top-panel';
+@import './components/score';
+@import './components/categories';
+@import './components/audio';
+@import './components/picture';
+@import './components/button';
+
+// Vendors
+@import './vendors/normalize';

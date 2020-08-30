@@ -1,0 +1,10 @@
+.answer-panel__container {
+  min-height: 300px;
+  width: 80%;
+  margin: 10px auto;
+  border-radius: 5px;
+  @include flex(row, space-between, center);
+  @media (max-width: $laptop-width) {
+    @include flex(column, space-between, center);
+  }
+}

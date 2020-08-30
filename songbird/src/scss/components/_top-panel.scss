@@ -1,0 +1,8 @@
+.top-panel__container {
+  margin: 0 auto 20px;
+  @include flex(row, space-between, center);
+  @media (max-width: $big-mobile-width) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,54 @@
+.answer-info__container {
+  width: 50%;
+  min-height: 300px;
+  padding: 10px;
+  background-color: $color-primary-light;
+  border-radius: 5px;  
+  @media (max-width: $laptop-width) {
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 10px;
+  }
+}
+
+.answer-info__item {
+  margin-bottom: 10px;
+  @include flex(row, space-between, center);
+  @media (max-width: $big-mobile-width) {
+    @include flex(column, space-between, center);
+  }
+}
+
+.answer-info__text {
+  color: $color-light;
+  font-size: 1.6rem;
+}
+
+.answer-info__title {
+  color: $color-light;
+  font-size: 2rem;
+}
+
+.answer-info__subtitle {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.answer-info__list {
+  width: calc(100% - 150px);
+  margin: 0;
+  text-align: left;
+  list-style: none;
+  @media (max-width: $big-mobile-width) {
+    width: 100%;
+    padding: 10px;
+  }
+  & > li {
+    padding: 5px 0;
+    line-height: 1;
+    border-bottom: 2px solid $color-primary;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

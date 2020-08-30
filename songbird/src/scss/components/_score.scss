@@ -1,0 +1,12 @@
+.score {
+  margin: 0;
+  color: $color-light;
+  font-weight: bold;
+  font-size: 2.5rem;
+  @media (max-width: $big-mobile-width) {
+    margin: 10px;
+  }
+  & > span {
+    color: $color-secondary;
+  }
+}
