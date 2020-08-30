@@ -1,11 +1,11 @@
 .finish-page__container {
   width: 75%;
   margin: 10px auto;
+  padding: 40px 10px;
+  color: $color-light;
+  text-align: center;
   background: $color-primary-light;
   border-radius: 5px;
-  padding: 40px 10px;
-  text-align: center;
-  color: $color-light;
   &_win {
     color: $color-dark;
     background-color: $color-secondary;
@@ -16,18 +16,27 @@
   color: $color-light;
   font-size: 5rem;
   line-height: 2;
+  @media (max-width: $tablet-width) {
+    font-size: 2.5rem;
+  }
 }
 
 .finish-page__subtitle {
+  margin: 40px 0;
   color: $color-light;
   font-size: 3.5rem;
   line-height: 2;
-  margin: 40px 0;
+  @media (max-width: $tablet-width) {
+    font-size: 2rem;
+  }
 }
 
 .finish-page__text {
-  font-size: 3rem;
   margin: 40px 0;
+  font-size: 3rem;
+  @media (max-width: $tablet-width) {
+    font-size: 1.8rem;
+  }
   & > span {
     font-weight: bold;
   }

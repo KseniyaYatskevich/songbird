@@ -1,10 +1,14 @@
 .question__container {
-  width: 75%;
+  box-sizing: border-box;
+  width: 80%;
   margin: 10px auto;
   padding: 10px;
   background-color: $color-primary-light;
   border-radius: 5px;
   @include flex(row, space-between, center);
+  @media (max-width: $tablet-width) {
+    @include flex(column, space-between, center);
+  }
 }
 
 .question__description {
@@ -12,6 +16,11 @@
   margin: 0;
   text-align-last: left;
   list-style: none;
+  @media (max-width: $tablet-width) {
+    width: 100%;
+    padding: 20px;
+    text-align-last: center;
+  }
   & > li:first-child {
     margin-bottom: 10px;
     border-bottom: 2px solid $color-primary;
@@ -23,4 +32,10 @@
   color: $color-light;
   font-size: 3rem;
   line-height: 2;
+  @media (max-width: $tablet-width) {
+    padding-bottom: 10px;
+    font-size: 2.4rem;
+    line-height: 1.5;
+    text-align: center;
+  }
 }

@@ -38,7 +38,13 @@
 
 .answer-list__container {
   width: 45%;
+  min-height: 252px;
   padding: 0;
   list-style: none;
   border-radius: 5px;
+  @media (max-width: $laptop-width) {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
 }

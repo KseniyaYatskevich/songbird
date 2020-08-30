@@ -1,4 +1,11 @@
 .top-panel__container {
   margin: 20px auto;
   @include flex(row, space-between, center);
+  @media (max-width: $big-mobile-width) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  // @media (max-width: $mobile-width) {
+  //   width: 100%;
+  // }
 }

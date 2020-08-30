@@ -5,6 +5,9 @@
   font-size: 4.5rem;
   font-style: italic;
   line-height: 1;
+  @media (max-width: $big-mobile-width) {
+    margin: 10px;
+  }
   & > span {
     color: $color-secondary;
   }
